@@ -10,9 +10,9 @@ import java.math.BigInteger;
  * Java has no primitive support for unsigned datatypes, therefore masking and casting to higher level primitives are
  * required to perform basic arithmetic.
  *
- * @author Chris Carpenter
+ * @author Christopher Carpenter
  * @author Ian Caffey
- * @since 1.0
+ * @since 1.0.0
  */
 public abstract class UnsignedNumber<T extends UnsignedNumber> extends Number implements Comparable<T> {
     /**
@@ -25,13 +25,13 @@ public abstract class UnsignedNumber<T extends UnsignedNumber> extends Number im
     }
 
     /**
-     * Uses the {@code int} representation of this unsigned number as a hash.
+     * Uses the {@code BigInteger} representation's hashCode() of this unsigned number.
      *
-     * @return a hash code value for this number.
+     * @return a hash code for this unsigned number.
      */
     @Override
     public int hashCode() {
-        return intValue();
+        return bigIntegerValue().hashCode();
     }
 
     /**

@@ -11,9 +11,9 @@ import java.util.Objects;
  * Java has no primitive support for unsigned datatypes, therefore masking and casting to higher level primitives are
  * required to perform basic arithmetic.
  *
- * @author Chris Carpenter
+ * @author Christopher Carpenter
  * @author Ian Caffey
- * @since 1.0
+ * @since 1.0.0
  */
 public class UnsignedLong extends UnsignedNumber<UnsignedLong> {
     public static final BigInteger MIN_VALUE = BigInteger.ZERO;
@@ -27,14 +27,15 @@ public class UnsignedLong extends UnsignedNumber<UnsignedLong> {
      * @param signed the signed primitive value to represent as unsigned
      */
     public UnsignedLong(long signed) {
-        if (signed >= 0)
+        if (signed >= 0) {
             this.unsigned = BigInteger.valueOf(signed);
-        else
+        } else {
             this.unsigned = BigInteger.valueOf(signed & Long.MAX_VALUE).add(MAX_SIGNED_VALUE);
+        }
     }
 
     /**
-     * Returns this unsigned number as an {@code int}.
+     * Down casts and returns this unsigned number as an {@code int}.
      *
      * @return the unsigned numeric value represented as {@code int}.
      */
@@ -44,9 +45,9 @@ public class UnsignedLong extends UnsignedNumber<UnsignedLong> {
     }
 
     /**
-     * Returns this unsigned number as a {@code long}.
+     * Returns this unsigned number as a signed {@code long}.
      *
-     * @return the unsigned numeric value represented as {@code long}.
+     * @return the unsigned numeric value represented as signed {@code long}.
      */
     @Override
     public long longValue() {
@@ -84,11 +85,6 @@ public class UnsignedLong extends UnsignedNumber<UnsignedLong> {
     }
 
     @Override
-    public int compareTo(UnsignedLong o) {
-        return unsigned.compareTo(o.unsigned);
-    }
-
-    @Override
     public boolean equals(Object o) {
         return o instanceof UnsignedLong && Objects.equals(unsigned, ((UnsignedLong) o).unsigned);
     }
@@ -96,5 +92,10 @@ public class UnsignedLong extends UnsignedNumber<UnsignedLong> {
     @Override
     public String toString() {
         return unsigned.toString();
+    }
+
+    @Override
+    public int compareTo(UnsignedLong o) {
+        return unsigned.compareTo(o.unsigned);
     }
 }
