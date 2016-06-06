@@ -25,12 +25,14 @@ public abstract class UnsignedNumber<T extends UnsignedNumber> extends Number im
     }
 
     /**
-     * Abstract method forcing subclasses to provide unique implementation overriding {@code Object} implementations.
+     * Uses the {@code int} representation of this unsigned number as a hash.
      *
-     * @return a hash code value for this object.
+     * @return a hash code value for this number.
      */
     @Override
-    public abstract int hashCode();
+    public int hashCode() {
+        return intValue();
+    }
 
     /**
      * Abstract method forcing subclasses to provide unique implementation overriding {@code Object} implementations.

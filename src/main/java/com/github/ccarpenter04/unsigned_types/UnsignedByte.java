@@ -94,11 +94,6 @@ public class UnsignedByte extends UnsignedNumber<UnsignedByte> {
     }
 
     @Override
-    public int hashCode() {
-        return Byte.hashCode(signed);
-    }
-
-    @Override
     public boolean equals(Object o) {
         return o instanceof UnsignedByte && signed == ((UnsignedByte) o).signed;
     }

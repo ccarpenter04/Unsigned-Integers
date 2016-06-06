@@ -84,17 +84,6 @@ public class UnsignedShort extends UnsignedNumber<UnsignedShort> {
         return Integer.compare(signed & MAX_VALUE, o.signed & MAX_VALUE);
     }
 
-    /**
-     * Returns a hash code for a {@code short} value; compatible with
-     * {@code Short.hashCode()}.
-     *
-     * @return a hash code value for a {@code short} value.
-     */
-    @Override
-    public int hashCode() {
-        return Short.hashCode(signed);
-    }
-
     @Override
     public boolean equals(Object o) {
         return o instanceof UnsignedShort && Objects.equals(signed, ((UnsignedShort) o).signed);

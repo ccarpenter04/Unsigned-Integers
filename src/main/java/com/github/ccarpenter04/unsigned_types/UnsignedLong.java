@@ -88,17 +88,6 @@ public class UnsignedLong extends UnsignedNumber<UnsignedLong> {
         return unsigned.compareTo(o.unsigned);
     }
 
-    /**
-     * Returns a hash code for a {@code long} value; compatible with
-     * {@code Long.hashCode()}.
-     *
-     * @return a hash code value for a {@code long} value.
-     */
-    @Override
-    public int hashCode() {
-        return unsigned.hashCode();
-    }
-
     @Override
     public boolean equals(Object o) {
         return o instanceof UnsignedLong && Objects.equals(unsigned, ((UnsignedLong) o).unsigned);

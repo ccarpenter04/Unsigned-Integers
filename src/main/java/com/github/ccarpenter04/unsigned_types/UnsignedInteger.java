@@ -83,17 +83,6 @@ public class UnsignedInteger extends UnsignedNumber<UnsignedInteger> {
         return Long.compare(signed & MAX_VALUE, o.signed & MAX_VALUE);
     }
 
-    /**
-     * Returns a hash code for a {@code int} value; compatible with
-     * {@code Integer.hashCode()}.
-     *
-     * @return a hash code value for a {@code int} value.
-     */
-    @Override
-    public int hashCode() {
-        return Integer.hashCode(signed);
-    }
-
     @Override
     public boolean equals(Object o) {
         return o instanceof UnsignedInteger && signed == ((UnsignedInteger) o).signed;
