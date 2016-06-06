@@ -1,4 +1,4 @@
-package com.github.ccarpenter04.numbers.unsigned;
+package com.github.ccarpenter04.unsigned_types;
 
 import java.math.BigInteger;
 

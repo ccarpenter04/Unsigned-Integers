@@ -1,13 +1,13 @@
-package com.github.ccarpenter04.numbers.unsigned;
+package com.github.ccarpenter04.unsigned_types;
 
 import java.math.BigInteger;
 
-public class UnsignedByte extends UnsignedNumber<UnsignedByte> {
-    public static final short MIN_VALUE = 0x00;
-    public static final short MAX_VALUE = 0xFF;
-    private final byte signed;
+public class UnsignedShort extends UnsignedNumber<UnsignedShort> {
+    public static final int MIN_VALUE = 0x0000;
+    public static final int MAX_VALUE = 0xFFFF;
+    private final short signed;
 
-    public UnsignedByte(byte signed) {
+    public UnsignedShort(short signed) {
         this.signed = signed;
     }
 
@@ -32,12 +32,7 @@ public class UnsignedByte extends UnsignedNumber<UnsignedByte> {
     }
 
     @Override
-    public short shortValue() {
-        return (short) (signed & MAX_VALUE);
-    }
-
-    @Override
-    public int compareTo(UnsignedByte o) {
+    public int compareTo(UnsignedShort o) {
         return Integer.compare(signed & MAX_VALUE, o.signed & MAX_VALUE);
     }
 
